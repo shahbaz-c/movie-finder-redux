@@ -11,29 +11,29 @@ const initialState = {
 };
 
 // Fetch API
-export const getTrending = createAsyncThunk(
-	'trending/getTrending',
-	async () => {
-		const response = await fetch(url);
-
-		const data = await response.json();
-		return data.results[0];
-	}
-);
-
-// Axios
 // export const getTrending = createAsyncThunk(
 // 	'trending/getTrending',
-// 	async (_, { rejectWithValue }) => {
-// 		try {
-// 			const response = await axios(url);
-// 			return response.data.results[0];
-// 			// console.log(response.data.results[0]);
-// 		} catch (error) {
-// 			return rejectWithValue('Error fetching Trending data!');
-// 		}
+// 	async () => {
+// 		const response = await fetch(url);
+
+// 		const data = await response.json();
+// 		return data.results[0];
 // 	}
 // );
+
+// Axios
+export const getTrending = createAsyncThunk(
+	'trending/getTrending',
+	async (_, { rejectWithValue }) => {
+		try {
+			const response = await axios(url);
+			return response.data.results[0];
+			// console.log(response.data.results[0]);
+		} catch (error) {
+			return rejectWithValue('Error fetching Trending data!');
+		}
+	}
+);
 
 export const trendingSlice = createSlice({
 	name: 'trending',
