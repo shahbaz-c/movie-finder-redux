@@ -26,13 +26,13 @@ const initialState = {
 export const getTrending = createAsyncThunk(
 	'trending/getTrending',
 	async (_, { rejectWithValue }) => {
-		try {
-			const response = await axios(url);
-			return response.data.results[0];
-			// console.log(response.data.results[0]);
-		} catch (error) {
-			return rejectWithValue('Error fetching Trending data!');
-		}
+		// try {
+		const response = await axios(url);
+		return response.data.results[0];
+		// console.log(response.data.results[0]);
+		// } catch (error) {
+		// 	return rejectWithValue('Error fetching Trending data!');
+		// }
 	}
 );
 
