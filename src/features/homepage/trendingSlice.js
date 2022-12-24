@@ -17,8 +17,7 @@ export const getTrending = createAsyncThunk(
 		const response = await fetch(url);
 
 		const data = await response.json();
-		// return data;
-		console.log(data);
+		return data.results[0];
 	}
 );
 
